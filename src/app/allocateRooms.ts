@@ -52,7 +52,8 @@ export default function allocateRooms(
       roomCount[roomType]--;
       people -= capacity;
     }
-    // Allocate a room for the remaining people
+
+    // Partially allocate a room if the remaining number of people is less than the room capacity
     if (roomCount[roomType] && people > 0 && people < capacity) {
       result.push(roomType + "!");
       roomCount[roomType]--;
