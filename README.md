@@ -1,4 +1,4 @@
-# Hotel Management Application
+# 🏨 Hotel Management Application
 
 Hotel Management is a command-line tool for managing hotel and booking data with ease. This application simplifies the process of loading and handling data from JSON files.
 
@@ -41,8 +41,8 @@ myapp --hotels hotels.json --bookings bookings.json
 
 ### Options
 
-- `--hotels`: Path to the JSON file containing hotel data.
-- `--bookings`: Path to the JSON file containing booking data.
+- `--hotels`: Specifies the path to the JSON file containing hotel data located within the `/db` directory.
+- `--bookings`: Specifies the path to the JSON file containing booking data located within the `/db` directory.
 
 ### Commands
 
@@ -60,7 +60,7 @@ Availability(HOTEL_CODE, START_DATE-END_DATE, ROOM_TYPE)
 - `HOTEL_CODE`: The unique code for the hotel (e.g., `H1`).
 - `DATE`: A specific date in `YYYYMMDD` format.
 - `START_DATE-END_DATE`: A range of dates in `YYYYMMDD-YYYYMMDD` format.
-- `ROOM_TYPE`: The type of room (e.g., SGL for Single, DBL for Double).
+- `ROOM_TYPE`: The type of room (e.g., `SGL` for Single, `DBL` for Double).
 
 ##### Example Input:
 
