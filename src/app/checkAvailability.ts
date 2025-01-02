@@ -9,15 +9,19 @@ export default function checkAvailability(
   dateRange: string,
   roomType: string
 ): number {
+  // Parse date range
   const [start, end] = dateRange.includes("-")
     ? dateRange.split("-").map(parseDate)
     : [parseDate(dateRange), parseDate(dateRange)];
 
+  // Filter rooms by type
   const totalRooms = hotel.rooms.filter(
     (room) => room.roomType === roomType
   ).length;
+
   let bookedRooms = 0;
 
+  // Check each booking for the hotel
   for (const booking of bookings) {
     if (
       // Check if the booking is for the same hotel and room type

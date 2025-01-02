@@ -9,6 +9,7 @@ export default function allocateRooms(
   dateRange: string,
   people: number
 ): string {
+  // Parse date range
   const [start, end] = dateRange.includes("-")
     ? dateRange.split("-").map(parseDate)
     : [parseDate(dateRange), parseDate(dateRange)];
@@ -18,6 +19,7 @@ export default function allocateRooms(
     DBL: 2,
   };
 
+  // Filter rooms that are not booked for the specified date range
   const availableRooms = hotel.rooms.filter((room) => {
     const booked = bookings.some(
       (booking) =>
