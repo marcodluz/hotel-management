@@ -28,6 +28,7 @@ Before you start, ensure you have the following installed on your machine:
 
    - Install dependencies
    - Build the project
+   - Make the index script executable
    - Link the application globally
 
 ## Usage
