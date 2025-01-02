@@ -12,7 +12,7 @@ function updateProgress(step, totalSteps) {
 try {
   console.log("Preparing application. Please wait...");
 
-  const totalSteps = 4;
+  const totalSteps = 5;
   let currentStep = 0;
 
   // Step 1: Install dependencies
@@ -31,7 +31,11 @@ try {
   }
   updateProgress(++currentStep, totalSteps);
 
-  // Step 4: Create global symlink
+  // Step 4: Make the script executable
+  execSync("chmod +x dist/app/index.js");
+  updateProgress(++currentStep, totalSteps);
+
+  // Step 5: Create global symlink
   execSync("npm link", { stdio: "ignore" });
   updateProgress(++currentStep, totalSteps);
 
