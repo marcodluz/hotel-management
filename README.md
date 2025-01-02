@@ -1,4 +1,4 @@
-# 🏨 Hotel Management Application
+# 🏨 Hotel Management System
 
 Hotel Management is a command-line tool for managing hotel and booking data with ease. This application simplifies the process of loading and handling data from JSON files.
 
