@@ -31,7 +31,7 @@ try {
   }
   updateProgress(++currentStep, totalSteps);
 
-  // Step 4: Make the script executable
+  // Step 4: Make the build output executable
   execSync("chmod +x dist/app/index.js");
   updateProgress(++currentStep, totalSteps);
 
