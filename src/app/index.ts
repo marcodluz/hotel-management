@@ -58,9 +58,12 @@ function main() {
     try {
       if (line.startsWith("Availability")) {
         const match = line.match(/Availability\((.+?),\s*(.+?),\s*(.+?)\)/);
+
         if (!match) throw new Error("Invalid command format");
+
         const [_, hotelId, dateRange, roomType] = match;
         const hotel = hotels.find((h) => h.id === hotelId);
+
         if (!hotel) throw new Error(`Hotel not found: ${hotelId}`);
 
         const availability = checkAvailability(
@@ -69,16 +72,21 @@ function main() {
           dateRange,
           roomType
         );
+
         console.log(availability);
       } else if (line.startsWith("RoomTypes")) {
         const match = line.match(/RoomTypes\((.+?),\s*(.+?),\s*(\d+)\)/);
+
         if (!match) throw new Error("Invalid command format");
+
         const [_, hotelId, dateRange, peopleStr] = match;
         const people = parseInt(peopleStr, 10);
         const hotel = hotels.find((h) => h.id === hotelId);
+
         if (!hotel) throw new Error(`Hotel not found: ${hotelId}`);
 
         const allocation = allocateRooms(hotel, bookings, dateRange, people);
+
         console.log(allocation);
       } else if (line.startsWith("help")) {
         displayHelp();
