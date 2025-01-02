@@ -21,27 +21,42 @@ export default function allocateRooms(
   const availableRooms = hotel.rooms.filter((room) => {
     const booked = bookings.some(
       (booking) =>
+        // Check if the booking is for the same hotel and room type
         booking.hotelId === hotel.id &&
         booking.roomType === room.roomType &&
+        // Check if the booking overlaps with the requested date range
         Math.max(parseDate(booking.arrival), start) <
           Math.min(parseDate(booking.departure), end)
     );
+
+    // Return true if the room is not booked
     return !booked;
   });
 
   const roomCount: Record<string, number> = {};
+
+  // Count the number of available rooms for each room type
   for (const room of availableRooms) {
     roomCount[room.roomType] = (roomCount[room.roomType] || 0) + 1;
   }
 
   const result: string[] = [];
+
+  // Sort the room types by capacity in descending order
   for (const [roomType, capacity] of Object.entries(roomCapacities).sort(
     (a, b) => b[1] - a[1]
   )) {
+    // Allocate rooms for the requested number of people
     while (roomCount[roomType] && people >= capacity) {
       result.push(roomType);
       roomCount[roomType]--;
       people -= capacity;
+    }
+    // Allocate a room for the remaining people
+    if (roomCount[roomType] && people > 0 && people < capacity) {
+      result.push(roomType + "!");
+      roomCount[roomType]--;
+      people = 0;
     }
   }
 
