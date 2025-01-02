@@ -20,8 +20,10 @@ export default function checkAvailability(
 
   for (const booking of bookings) {
     if (
+      // Check if the booking is for the same hotel and room type
       booking.hotelId === hotel.id &&
       booking.roomType === roomType &&
+      // Check if the booking overlaps with the requested date range
       Math.max(parseDate(booking.arrival), start) <
         Math.min(parseDate(booking.departure), end)
     ) {
