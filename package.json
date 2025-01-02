@@ -14,7 +14,7 @@
     "management"
   ],
   "author": "Marco Luz",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Hotel Management System",
   "devDependencies": {
     "@types/node": "^22.10.2",
