@@ -1,17 +1,25 @@
 {
   "name": "hotel-management",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/app/index.js",
+  "bin": {
+    "myapp": "dist/app/index.js"
+  },
   "scripts": {
     "build": "tsc",
-    "start:dev": "node dist/index.js --hotels hotels.json --bookings bookings.json"
+    "start:dev": "nodemon --exec ts-node src/app/index.ts -- --hotels hotels.json --bookings bookings.json"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "hotel",
+    "management"
+  ],
+  "author": "Marco Luz",
   "license": "ISC",
-  "description": "",
+  "description": "Hotel Management System",
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
 }
